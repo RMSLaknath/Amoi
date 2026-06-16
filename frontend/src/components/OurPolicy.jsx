@@ -1,29 +1,27 @@
 import React from 'react'
 import { assets } from '../assets/assets'
 
+const policies = [
+  { icon: assets.exchange_icon, title: 'Easy Exchange', desc: 'Hassle-free exchange on all orders.' },
+  { icon: assets.quality_icon, title: '7-Day Returns', desc: 'Free returns within 7 days of delivery.' },
+  { icon: assets.support_img, title: '24/7 Support', desc: 'Our team is always here to help.' },
+]
+
 const OurPolicy = () => {
   return (
-    <div className='flex flex-col sm:flex-row justify-around gap-12 sm:gap-2 text-center py-20 text-xs sm:text-sm  md:text-base text-gray-700 ' >
-      
-      <div>
-        <img src={assets.exchange_icon} alt="" className='w-12 m-auto mb-5'/>
-        <p className='font-semibold'>Easy Exchange Policy</p>
-        <p className='text-gray-400'>We offer hasle free exchange Policy</p>
+    <section className='border-t border-gray-100 py-10'>
+      <div className='grid grid-cols-1 sm:grid-cols-3 gap-6'>
+        {policies.map(({ icon, title, desc }) => (
+          <div key={title} className='flex flex-col items-center text-center gap-3'>
+            <img src={icon} alt={title} className='w-8 h-8 object-contain opacity-60' />
+            <div>
+              <p className='text-xs tracking-[0.15em] text-gray-900 uppercase mb-1'>{title}</p>
+              <p className='text-xs text-gray-400 leading-relaxed'>{desc}</p>
+            </div>
+          </div>
+        ))}
       </div>
-
-      <div>
-        <img src={assets.quality_icon} alt="" className='w-12 m-auto mb-5'/>
-        <p className='font-semibold'>7 Days Return Policy</p>
-        <p className='text-gray-400'>We provide 7 days free return policy</p>
-      </div>
-      
-      <div>
-        <img src={assets.support_img} alt="" className='w-12 m-auto mb-5'/>
-        <p className='font-semibold'>Best customer support</p>
-        <p className='text-gray-400'>we provide 24/7 customer support</p>
-      </div>
-    
-    </div>
+    </section>
   )
 }
 

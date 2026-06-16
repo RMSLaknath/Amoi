@@ -1,20 +1,27 @@
 import React from 'react'
 
 const NewsLetterBox = () => {
-
-    const onSubmitHandler = (event) => {
-    event.preventDefault();
-    }
+  const onSubmitHandler = e => e.preventDefault()
 
   return (
-    <div className='text-center'>
-      <p className='text-2xl font-medium text-gray-800'>Subscribe now & get 20% off</p>
-      <p className='text-gray-400 mt-3'>Stay ahead of fashion trends! Get exclusive access to new collections, seasonal styles, and member-only discounts. Be the first to shop our latest arrivals before they sell out.</p>   
-      <form onSubmit={onSubmitHandler} className='w-full sm:w-1/2 flex items-center gap-3 mx-auto my-6 border pl-3'>
-        <input className='w-full sm:flex-1 outline-none'  type='email' placeholder='Enter your email' required/>
-        <button type='submit' className='bg-black text-white text-xs px-10 py-4'>SUBSCRIBE</button>
+    <section className='bg-gray-50 py-12 text-center'>
+      <p className='text-xs tracking-[0.25em] text-gray-400 uppercase mb-2'>Exclusive Offers</p>
+      <h2 className='prata-regular text-2xl text-gray-900 mb-3'>Get 20% Off</h2>
+      <p className='text-sm text-gray-400 max-w-sm mx-auto leading-relaxed mb-6'>
+        Subscribe to our newsletter for early access to new collections and member-only discounts.
+      </p>
+      <form onSubmit={onSubmitHandler} className='flex items-center max-w-sm mx-auto border-b border-gray-300 pb-2'>
+        <input
+          className='flex-1 text-sm text-gray-900 bg-transparent outline-none placeholder-gray-300'
+          type='email'
+          placeholder='Your email address'
+          required
+        />
+        <button type='submit' className='text-xs tracking-[0.15em] text-gray-900 hover:text-black shrink-0 ml-4'>
+          SUBSCRIBE →
+        </button>
       </form>
-    </div>
+    </section>
   )
 }
 

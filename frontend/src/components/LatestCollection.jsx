@@ -1,35 +1,30 @@
-import React, { useEffect, useState } from 'react'
-import { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { ShopContext } from '../context/ShopContext'
-import Title from './Title';
-import ProductItem from './ProductItem';
+import Title from './Title'
+import ProductItem from './ProductItem'
 
 const LatestCollection = () => {
-  
-  const { products} = useContext(ShopContext);
-
-  const [latestProducts, setLatestProducts ] = useState([]);
+  const { products } = useContext(ShopContext)
+  const [latestProducts, setLatestProducts] = useState([])
 
   useEffect(() => {
-     setLatestProducts(products.slice(0,10));
-  },[products])
-  
-    return (
-    <div className='my-10'>
-      <div className='text-center py-8 text-3xl'>
-        <Title  text1={'LATEST'} text2={'COLLECTION'} />
-        <p className='w-3/4 m-auto text-xs sm:text-sm md:text-base  text-gray-600'>Ecommerce or "electronic commerce" is the trading of goods and services online. The internet allows individuals and businesses to buy and sell an increasing amount of physical goods, digital goods, and services electronically.</p>     
+    setLatestProducts(products.slice(0, 10))
+  }, [products])
+
+  return (
+    <section className='py-10 sm:py-14'>
+      <div className='flex flex-col sm:flex-row sm:items-end sm:justify-between mb-6 gap-2'>
+        <Title text1='NEW IN' text2='Latest Collection' />
+        <p className='text-xs text-gray-400 sm:max-w-xs sm:text-right leading-relaxed'>
+          Freshly curated pieces added every week — explore what's new.
+        </p>
       </div>
-      
-      {/* Rendering products */}
-      
-      <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-4 gap-y-6'>
-        {latestProducts.map((item,index) => (
-          <ProductItem key={index} id={item._id} image={item.image} name={item.name} price={item.price}/>
+      <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-3 gap-y-6'>
+        {latestProducts.map((item, index) => (
+          <ProductItem key={index} id={item._id} image={item.image} name={item.name} price={item.price} />
         ))}
       </div>
-
-    </div>
+    </section>
   )
 }
 

@@ -2,30 +2,77 @@
 
 @import "tailwindcss";
 
-a.active hr {
-    display: block;
+* {
+  font-family: Outfit, sans-serif;
 }
-
-*{
-    font-family: Outfit;
-}
-
-
 
 .prata-regular {
-    font-family: "Prata", serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-::-webkit-scrollbar {
-    display: none;
+  font-family: "Prata", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
+/* Active nav underline */
+a.active hr {
+  display: block;
+}
 
-@media (max-width:640px) {
-    a.active{
-        background-color: black;
-        color: white;
-    }
-}  
+@media (max-width: 640px) {
+  a.active {
+    color: #111;
+    font-weight: 600;
+  }
+}
+
+/* Hide scrollbar */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Smooth transitions globally */
+* {
+  transition-property: color, background-color, border-color, opacity, transform;
+  transition-duration: 200ms;
+  transition-timing-function: ease;
+}
+
+/* Hero carousel animations */
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heroProgress {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+.hero-text-enter {
+  animation: heroFadeUp 0.5s ease forwards;
+}
+
+.hero-progress {
+  animation: heroProgress 4s linear forwards;
+}
+
+/* Input underline focus style */
+.input-minimal {
+  border: none;
+  border-bottom: 1px solid #d1d5db;
+  background: transparent;
+  outline: none;
+  padding: 8px 0;
+  width: 100%;
+  font-size: 0.875rem;
+  color: #111;
+}
+
+.input-minimal:focus {
+  border-bottom-color: #111;
+}
+
+.input-minimal::placeholder {
+  color: #9ca3af;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}

@@ -6,12 +6,18 @@ const ProductItem = ({ id, image, name, price }) => {
   const { formatPrice } = useCurrency()
 
   return (
-    <Link className='text-gray-700 cursor-pointer' to={`/product/${id}`}>
-      <div className='overflow-hidden'>
-        <img className='hover:scale-110 transition ease-in-out' src={image[0]} alt="" />
+    <Link to={`/product/${id}`} className='group block'>
+      <div className='overflow-hidden bg-gray-50 aspect-[3/4]'>
+        <img
+          className='w-full h-full object-cover group-hover:scale-105 transition-transform duration-500'
+          src={image[0]}
+          alt={name}
+        />
       </div>
-      <p className='pt-3 pb-1 text-sm'>{name}</p>
-      <p className='text-sm font-medium'>{formatPrice(price)}</p>
+      <div className='mt-2'>
+        <p className='text-xs tracking-wide text-gray-700 truncate'>{name}</p>
+        <p className='text-xs font-medium text-gray-900 mt-0.5'>{formatPrice(price)}</p>
+      </div>
     </Link>
   )
 }
