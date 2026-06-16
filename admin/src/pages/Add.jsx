@@ -176,13 +176,16 @@ const Add = ({ token }) => {
 
         <div>
           <p className="mb-2">Product Price</p>
-          <input
-            onChange={(e) => setPrice(e.target.value)}
-            value={price}
-            className="w-full px-3 py-2 sm:w-[120px]"
-            type="Number"
-            placeholder="25"
-          />
+          <div className="flex items-center gap-2">
+            <input
+              onChange={(e) => setPrice(e.target.value)}
+              value={price}
+              className="w-full px-3 py-2 sm:w-[120px]"
+              type="Number"
+              placeholder="25"
+            />
+            <span className="text-sm text-gray-500 whitespace-nowrap">LKR (රු)</span>
+          </div>
         </div>
       </div>
 
